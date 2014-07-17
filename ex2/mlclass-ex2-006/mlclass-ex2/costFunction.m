@@ -20,7 +20,15 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
+% cost computation
+% element wise division of m
+% times by differential term
+
 J = 1./m * ( -y' * log( sigmoid(X * theta) ) - ( 1 - y' ) * log ( 1 - sigmoid( X * theta)) );
+
+% gradient computation
+% 1 over m times by transposed X times by 
+%     hypothesis - y
 
 grad = 1./m * X' * (sigmoid(X * theta) - y);
 

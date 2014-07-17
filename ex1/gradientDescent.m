@@ -7,6 +7,7 @@ function [theta, J_history] = gradientDescent(X, y, theta, alpha, num_iters)
 m = length(y); % number of training examples
 J_history = zeros(num_iters, 1);
 
+% loop through iterations
 for iter = 1:num_iters
 
     % ====================== YOUR CODE HERE ======================
@@ -16,16 +17,16 @@ for iter = 1:num_iters
     % Hint: While debugging, it can be useful to print out the values
     %       of the cost function (computeCost) and gradient here.
     %
-   
+    % theta is updated as a vector to speed up algorithm
+    % -1/m times differential
+    % differential is hpothesis X * theta
+    % transpose
+    % times by X
+    % all transposed
+    % differential is times by alpha
     theta = theta - ((1/m) * ((X * theta) - y)' * X)' * alpha;
-    %theta vector is updated to theta
-        % - 1/m . alpha . the differential
-        % differential is ((X * theta) - y)', the hypothesis minus the actual result, all transposed
-        % times by the X matrix, all transposed.
-        % vector math improves speed.
-    % ============================================================
-
-    % Save the cost J in every iteration    
+    
+    % add cost to history  
     J_history(iter) = computeCost(X, y, theta);
 
 end
