@@ -18,13 +18,10 @@ for iter = 1:num_iters
     %
 
 
-
-    % not started
-
-
-
-
-
+    % cost function
+    h = X*theta;
+    % vectorised gradient descent
+    theta = theta - alpha / m * (X'*(h - y));
 
 
     % ============================================================

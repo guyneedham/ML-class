@@ -14,8 +14,12 @@ J = 0;
 %               You should set J to the cost.
 
 
-
-% Not started!
+  % compute the hypothesis
+  h = X * theta;
+  % find the error term
+  error = h - y;
+  % compute the cost
+  J = 1./2./m * (error' * error);
 
 % =========================================================================
 

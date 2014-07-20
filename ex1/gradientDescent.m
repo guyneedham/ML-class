@@ -25,7 +25,6 @@ for iter = 1:num_iters
     % all transposed
     % differential is times by alpha
     theta = theta - ((1/m) * ((X * theta) - y)' * X)' * alpha;
-    
     % add cost to history  
     J_history(iter) = computeCost(X, y, theta);
 

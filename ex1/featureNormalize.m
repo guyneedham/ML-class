@@ -27,7 +27,20 @@ sigma = zeros(1, size(X, 2));
 %       
 
 
-% not started
+% find the mean with the mean function:
+  mu = mean(X);
+  % find the std with the std function:
+  sigma = std(X);
+  % two alternatives: a two iteration for loop:
+  %indices = 1:size(X,2);
+  %for i in indices:
+  %  X_norm(:, i) = (X(:, i) - mu(i)) / sigma(i);
+  %end
+  
+  % or use the Octave function zscore to do the same thing
+  % using functions is better - less code to maintain
+  % likely to be optimised better
+  X_norm = zscore(X);
 
 
 

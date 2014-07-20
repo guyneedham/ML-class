@@ -12,9 +12,15 @@ theta = zeros(size(X, 2), 1);
 
 % ---------------------- Sample Solution ----------------------
 
-
-  % not started
-
+  % use pseudo inverse in case feature matrix is non-intertible
+  theta = pinv(X'*X) * X' * y;
+  % benefits of normal equation: 
+      % no alpha term needed - no learning rate, so can't get issues from this
+      % feature scaling not needed
+  % drawbacks:
+      % for high n, hard to compute
+      % matrix may be non-intervible
+      % due to many features or redundant, duplicated features  
 % -------------------------------------------------------------
 
 
